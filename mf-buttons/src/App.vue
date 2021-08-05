@@ -1,5 +1,5 @@
 <template>
-    <div id="app">
+    <div id="app" ref="app">
         <h4>
             Calculator Buttons
         </h4>
@@ -45,7 +45,8 @@ export default {
             operatorButtons: [
                 { value: '+' },
                 { value: '-' },
-                { value: '=' }
+                { value: '=' },
+                // { value: 'C' }
             ]
         }
     },
@@ -58,6 +59,11 @@ export default {
                     type: 'operator',
                     val: value
                 }
+            // } else if (value === 'C') {
+            //     data = {
+            //         type: 'clear',
+            //         val: '0'
+            //     }
             } else {
                 data = {
                     type: 'number',
@@ -69,6 +75,11 @@ export default {
         }
     },
     mounted () {
+        // const data = {
+        //     type: 'buttonInfo',
+        //     val: this.$refs.app.scrollHeight
+        // }
+        // window.parent.postMessage(data, "http://localhost:8080")
     }
 }
 </script>

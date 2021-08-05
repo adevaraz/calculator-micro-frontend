@@ -14,16 +14,15 @@ export default {
   name: 'App',
   data () {
     return {
-      value: 0,
-      isNumber: true
+      value: 0
     }
   },
   methods: {
     updateDisplay (event) {
-      if(event === null) {
-        this.value = 0
-      } else {
+      if(event.data !== null) {
         this.value = event.data.val
+      } else {
+        this.value = 0
       }
     }
   },
