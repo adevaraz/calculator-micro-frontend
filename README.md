@@ -34,8 +34,8 @@ http://localhost:8082/
 # aplikasi mf-buttons
 http://localhost:8083/
 ```
-Setelah itu, pada direktori `calculator-micro-frontend`, buka file `home.html` pada browser atau jalankan perintah berikut terlebih dulu:
+Setelah menjalankan seluruh micro-frontend yang diperlukan, pada direktori `mf-home`, jalankan perintah berikut:
 ```
-python -m http.server
+npm run serve
 ```
-Kemudian, buka `http://localhost:8000/` pada browser.
+Kemudian, buka `http://localhost:8080/` pada browser. Halaman ini merupakan container yang melakukan fetch terhadap ketiga micro-frontend.
