@@ -6,13 +6,21 @@
         <h5>
             Number
         </h5>
-        <button v-for="button in numberButtons" :key="button.value">
+        <button
+            v-for="button in numberButtons"
+            :key="button.value"
+            v-on:click.capture="sendToDisplay(button.value)"
+        >
             {{ button.value }}
         </button>
         <h5>
             Operator
         </h5>
-        <button v-for="button in operatorButtons" :key="button.value">
+        <button
+            v-for="button in operatorButtons"
+            :key="button.value"
+            v-on:click.capture="sendToDisplay(button.value)"
+        >
             {{ button.value }}
         </button>
     </div>
@@ -36,9 +44,31 @@ export default {
             ],
             operatorButtons: [
                 { value: '+' },
-                { value: '-' }
+                { value: '-' },
+                { value: '=' }
             ]
         }
+    },
+    methods: {
+        sendToDisplay (value) {
+            let data = {}
+
+            if (value === '+' || value === '-' || value === '=') {
+                data = {
+                    type: 'operator',
+                    val: value
+                }
+            } else {
+                data = {
+                    type: 'number',
+                    val: value
+                }
+            }
+
+            window.parent.postMessage(data, "http://localhost:8080")
+        }
+    },
+    mounted () {
     }
 }
 </script>

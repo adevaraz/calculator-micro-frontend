@@ -3,13 +3,34 @@
         <h4> Display </h4>
         <table>
             <tr>
-                <p> 12 </p>
+                {{ value }}
             </tr>
         </table>
     </div>
 </template>
 
 <script>
+export default {
+  name: 'App',
+  data () {
+    return {
+      value: 0,
+      isNumber: true
+    }
+  },
+  methods: {
+    updateDisplay (event) {
+      if(event === null) {
+        this.value = 0
+      } else {
+        this.value = event.data.val
+      }
+    }
+  },
+  mounted () {
+    window.addEventListener('message', this.updateDisplay)
+  }
+}
 </script>
 
 <style scoped>
