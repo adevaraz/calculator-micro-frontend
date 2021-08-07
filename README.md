@@ -39,3 +39,17 @@ Setelah menjalankan seluruh micro-frontend yang diperlukan, pada direktori `mf-h
 npm run serve
 ```
 Kemudian, buka `http://localhost:8080/` pada browser. Halaman ini merupakan container yang melakukan fetch terhadap ketiga micro-frontend.
+
+## Menjalankan Script Test
+### 1. Instalasi depencencies
+Pada aplikasi micro-frontend `buttons` (`calculator-micro-frontend/mf-buttons`), lakukan instalasi dependencies yang ada dengan menjalankan perintah berikut:
+```
+npm install @vue/cli-plugin-unit-jest @vue/test-utils
+```
+Lakukan langkah 1 pada aplikasi micro-frontend `display`, `navbar`, dan `home`.
+
+### 2. Jalankan script test
+Untuk menjalankan script test, masuk ke direktori aplikasi yang akan dijalankan scriptnya, lalu jalankan perintah berikut:
+```
+npm run test
+```
