@@ -3,26 +3,30 @@
         <h4>
             Calculator Buttons
         </h4>
-        <h5>
-            Number
-        </h5>
-        <button
-            v-for="button in numberButtons"
-            :key="button.value"
-            v-on:click.capture="sendToDisplay(button.value)"
-        >
-            {{ button.value }}
-        </button>
-        <h5>
-            Operator
-        </h5>
-        <button
-            v-for="button in operatorButtons"
-            :key="button.value"
-            v-on:click.capture="sendToDisplay(button.value)"
-        >
-            {{ button.value }}
-        </button>
+        <div id="number-buttons">
+            <h5>
+                Number
+            </h5>
+            <button
+                v-for="button in numberButtons"
+                :key="button.value"
+                v-on:click.capture="sendToDisplay(button.value)"
+            >
+                {{ button.value }}
+            </button>
+        </div>
+        <div id="operator-buttons">
+            <h5>
+                Operator
+            </h5>
+            <button
+                v-for="button in operatorButtons"
+                :key="button.value"
+                v-on:click.capture="sendToDisplay(button.value)"
+            >
+                {{ button.value }}
+            </button>
+        </div>
     </div>
 </template>
 

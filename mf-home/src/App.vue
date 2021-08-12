@@ -1,12 +1,12 @@
 <template>
   <div id="app">
-    <iframe ref="navbar" src="http://localhost:8081" frameBorder="0">
+    <iframe id="navbar" ref="navbarFrame" src="http://localhost:8081" frameBorder="0">
         <p>Your browser does not support iframes.</p>
     </iframe>
-    <iframe ref="displayFrame" src="http://localhost:8082" frameBorder="0">
+    <iframe id="display" ref="displayFrame" src="http://localhost:8082" frameBorder="0">
         <p>Your browser does not support iframes.</p>
     </iframe>
-    <iframe ref="buttonsFrame" src="http://localhost:8083" frameBorder="0" :style="{ height: this.buttonHeight }">
+    <iframe id="buttons" ref="buttonsFrame" src="http://localhost:8083" frameBorder="0" :style="{ height: this.buttonHeight }">
         <p>Your browser does not support iframes.</p>
     </iframe>
   </div>
@@ -15,6 +15,7 @@
 <script>
 export default {
   name: 'App',
+  title: 'Micro-frontend Calculator',
   data () {
     return {
       displayWin: {},
@@ -39,7 +40,7 @@ export default {
       this.refreshCalcData()
     },
     refreshCalcData() {
-      this. calculator = {
+      this.calculator = {
         displayNumber: '',
         firstNumber: '',
         isSecondNumExist: false,
@@ -117,8 +118,9 @@ export default {
         const data = {
           val: this.result
         }
+        console.log(data)
 
-        // this.sendToDisplay(data)
+        this.sendToDisplay(data)
         this.refreshCalcData()
       }
     }
