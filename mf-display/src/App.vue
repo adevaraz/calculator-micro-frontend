@@ -2,8 +2,10 @@
     <div id="app">
         <h4> Display </h4>
         <table>
-            <tr>
-                {{ value }}
+            <tr id="display-val">
+                <p>
+                  {{ value }}
+                </p>
             </tr>
         </table>
     </div>
