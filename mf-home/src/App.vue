@@ -3,7 +3,7 @@
     <iframe id="navbar" ref="navbarFrame" src="http://localhost:8081" frameBorder="0">
         <p>Your browser does not support iframes.</p>
     </iframe>
-    <iframe id="display" ref="displayFrame" src="http://localhost:8082" frameBorder="0">
+    <iframe id="display" ref="displayFrame" src="http://localhost:3000" frameBorder="0">
         <p>Your browser does not support iframes.</p>
     </iframe>
     <iframe id="buttons" ref="buttonsFrame" src="http://localhost:8083" frameBorder="0" :style="{ height: this.buttonHeight }">
@@ -71,7 +71,7 @@ export default {
           this.sendToDisplay(data)
 
           if(this.calculator.displayNumber !== '' && this.calculator.firstNumber !== '') {
-            this.calculator.isSecondNumExist = !this.calculator.isSecondNumExist
+            this.calculator.isSecondNumExist = true
           }
           break
         
@@ -93,7 +93,7 @@ export default {
       }
     },
     sendToDisplay (data) {
-      this.displayWin.postMessage(data, 'http://localhost:8082')
+      this.displayWin.postMessage(data, 'http://localhost:3000')
     },
     inputDigit (digit) {
       if(this.calculator.displayNumber === '') {
