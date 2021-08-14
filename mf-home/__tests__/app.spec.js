@@ -23,7 +23,6 @@ describe('Mounted App', () => {
             operator: '+'
         } })
         wrapper.vm.performCalculation()
-        console.log(wrapper.vm.result)
         expect(wrapper.vm.result).toBe('5')
     })
 
@@ -35,7 +34,6 @@ describe('Mounted App', () => {
             operator: '-'
         } })
         wrapper.vm.performCalculation()
-        console.log(wrapper.vm.result)
         expect(wrapper.vm.result).toBe('1')
     })
 

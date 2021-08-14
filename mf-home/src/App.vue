@@ -78,6 +78,10 @@ export default {
         case 'operator':
           if(data.val === '=') {
             this.performCalculation()
+            data = {
+              val: this.result
+            }
+            this.sendToDisplay(data)
           } else {
             this.calculator.operator = data.val
 
@@ -111,7 +115,6 @@ export default {
       }
     },
     performCalculation () {
-      console.log('second num', this.calculator.isSecondNumExist)
       if(this.calculator.isSecondNumExist) {
         let result = 0
         switch (this.calculator.operator) {
@@ -124,12 +127,7 @@ export default {
         }
 
         this.result = result.toString()
-        const data = {
-          val: this.result
-        }
-        console.log('perform calc', data)
 
-        this.sendToDisplay(data)
         this.refreshCalcData()
       }
     }

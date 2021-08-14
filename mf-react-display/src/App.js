@@ -20,7 +20,6 @@ class App extends Component {
 
   updateDisplay(event) {
     if(event.data !== null) {
-      console.log(event.data.val)
       this.value = event.data.val
     } else {
       this.value = 0
