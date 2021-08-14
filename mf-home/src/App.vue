@@ -33,10 +33,10 @@ export default {
   },
   methods: {
     refreshAllData () {
-      this.displayWin = {}
-      this.navbarHeight = 150,
-      this.displayHeight = 150,
-      this.buttonHeight = 150,
+      this.navbarHeight = 150
+      this.displayHeight = 150
+      this.buttonHeight = 150
+      this.result = ''
       this.refreshCalcData()
     },
     refreshCalcData() {
@@ -90,6 +90,14 @@ export default {
             this.calculator.displayNumber = ''
           }
           break
+        
+        case 'clear':
+          data = {
+            val: '0'
+          }
+          this.sendToDisplay(data)
+          this.refreshAllData()
+          break
       }
     },
     sendToDisplay (data) {
@@ -103,6 +111,7 @@ export default {
       }
     },
     performCalculation () {
+      console.log('second num', this.calculator.isSecondNumExist)
       if(this.calculator.isSecondNumExist) {
         let result = 0
         switch (this.calculator.operator) {
@@ -118,7 +127,7 @@ export default {
         const data = {
           val: this.result
         }
-        console.log(data)
+        console.log('perform calc', data)
 
         this.sendToDisplay(data)
         this.refreshCalcData()

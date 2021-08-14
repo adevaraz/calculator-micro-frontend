@@ -50,7 +50,7 @@ export default {
                 { value: '+' },
                 { value: '-' },
                 { value: '=' },
-                // { value: 'C' }
+                { value: 'C' }
             ]
         }
     },
@@ -63,11 +63,11 @@ export default {
                     type: 'operator',
                     val: value
                 }
-            // } else if (value === 'C') {
-            //     data = {
-            //         type: 'clear',
-            //         val: '0'
-            //     }
+            } else if (value === 'C') {
+                data = {
+                    type: 'clear',
+                    val: '0'
+                }
             } else {
                 data = {
                     type: 'number',
