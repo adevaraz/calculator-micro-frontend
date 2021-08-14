@@ -22,6 +22,7 @@ export default {
   methods: {
     updateDisplay (event) {
       if(event.data !== null) {
+        console.log(event.data)
         this.value = event.data.val
       } else {
         this.value = 0
