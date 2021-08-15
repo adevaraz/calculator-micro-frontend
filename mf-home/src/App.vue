@@ -6,7 +6,7 @@
     <iframe id="display" ref="displayFrame" src="http://localhost:3000" frameBorder="0">
         <p>Your browser does not support iframes.</p>
     </iframe>
-    <iframe id="buttons" ref="buttonsFrame" src="http://localhost:8083" frameBorder="0" :style="{ height: this.buttonHeight }">
+    <iframe id="buttons" ref="buttonsFrame" src="http://localhost:8083" frameBorder="0">
         <p>Your browser does not support iframes.</p>
     </iframe>
   </div>
@@ -19,9 +19,6 @@ export default {
   data () {
     return {
       displayWin: {},
-      navbarHeight: 150,
-      displayHeight: 150,
-      buttonHeight: 150,
       result: '',
       calculator: {
         displayNumber: '0',
@@ -33,9 +30,6 @@ export default {
   },
   methods: {
     refreshAllData () {
-      this.navbarHeight = 150
-      this.displayHeight = 150
-      this.buttonHeight = 150
       this.result = ''
       this.refreshCalcData()
     },
@@ -52,15 +46,15 @@ export default {
 
       switch(data.type) {
         case 'navbarInfo':
-          this.navbarHeight = data.val
+          this.$refs.navbarFrame.height = data.val + 50
           break
 
         case 'displayInfo':
-          this.displayHeight = data.val
+          this.$refs.displayFrame.height = data.val
           break
 
         case 'buttonInfo':
-          this.buttonHeight = data.val
+          this.$refs.buttonsFrame.height = data.val + 50
           break
 
         case 'number':

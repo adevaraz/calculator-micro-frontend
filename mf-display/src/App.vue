@@ -1,5 +1,5 @@
 <template>
-    <div id="app">
+    <div id="app" ref="app">
         <h4> Display </h4>
         <table>
             <tr id="display-val">
@@ -31,6 +31,12 @@ export default {
   },
   mounted () {
     window.addEventListener('message', this.updateDisplay)
+
+    const data = {
+      type: 'displayInfo',
+      val: this.$refs.app.scrollHeight
+    }
+    window.parent.postMessage(data, "http://localhost:8080")
   }
 }
 </script>

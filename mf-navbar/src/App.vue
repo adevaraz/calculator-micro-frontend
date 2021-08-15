@@ -1,12 +1,19 @@
 <template>
-    <nav id="app">
+    <nav id="app" ref="app">
         <h4> MF-Calculator </h4>
     </nav>
 </template>
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  mounted () {
+    const data = {
+      type: 'navbarInfo',
+      val: this.$refs.app.scrollHeight
+    }
+    window.parent.postMessage(data, "http://localhost:8080")
+  }
 }
 </script>
 

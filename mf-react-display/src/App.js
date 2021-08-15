@@ -37,7 +37,7 @@ class App extends Component {
         <h4> Display </h4>
           <table>
               <tbody>
-                  <tr><td>{this.state.count}</td></tr>
+                  <tr id="display-val"><td>{this.state.count}</td></tr>
               </tbody>
           </table>
       </div>

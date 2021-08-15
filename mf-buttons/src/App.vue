@@ -79,11 +79,11 @@ export default {
         }
     },
     mounted () {
-        // const data = {
-        //     type: 'buttonInfo',
-        //     val: this.$refs.app.scrollHeight
-        // }
-        // window.parent.postMessage(data, "http://localhost:8080")
+        const data = {
+            type: 'buttonInfo',
+            val: this.$refs.app.scrollHeight
+        }
+        window.parent.postMessage(data, "http://localhost:8080")
     }
 }
 </script>
