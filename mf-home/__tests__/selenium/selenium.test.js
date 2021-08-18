@@ -266,6 +266,20 @@ describe('Calculator Test Suite', function() {
     assert.strictEqual(displayVal, '1')
   });
 
+  it('Clear operation', async function() {
+    await driver.get(url);
+    await driver.switchTo().frame(2)
+    const clsOp = await driver.findElement(By.xpath(`//button[contains(text(),'C')]`))
+
+    await clsOp.click()
+
+    await driver.switchTo().parentFrame()
+    await driver.switchTo().frame(1)
+    const displayVal = await driver.findElement(By.id('display-val')).getText()
+
+    assert.strictEqual(displayVal, '0')
+  });
+
   // Close the browser after running test
   after(async function() {
     return driver.quit()
